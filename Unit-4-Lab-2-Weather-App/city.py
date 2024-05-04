@@ -73,5 +73,8 @@ class City:
 		speedWind = self.wind * 2.237
 		self.wind = round(speedWind, 2)
 		return self.wind
+
+	def get_desc(self):
+		return self.desc
 	
 	
