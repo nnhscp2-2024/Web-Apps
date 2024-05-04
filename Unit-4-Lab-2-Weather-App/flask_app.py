@@ -67,4 +67,26 @@ app = Flask(__name__)
 def index():
 	return render_template('index.html') 
 
+@app.route('/', methods = ['POST'])
+def index2():
+	# get the city name from the form's search box
+	city_str = request.form["search_box"]
+	dataOfCity = get_data(city_str)
+	print(dataOfCity)
+
+	cityWeather = City(dataOfCity[0], dataOfCity[1], dataOfCity[2], dataOfCity[3], dataOfCity[4], dataOfCity[5], dataOfCity[6])
+	cityWeather.get_feel_in_C()
+	cityWeather.get_feel_in_F()
+	cityWeather.get_max_in_C()
+	cityWeather.get_max_in_F()
+	cityWeather.get_min_in_C()
+	cityWeather.get_min_in_F()
+	cityWeather.get_temp_in_C()
+	cityWeather.get_temp_in_F()
+	cityWeather.get_wind_speed()
+
+	cities.append(cityWeather)
+
+	return render_template('index.html', city = city_str, tempC = cityWeather.tempC, tempF = cityWeather.tempF, minC = cityWeather.minC, minF = cityWeather.minF, maxC = cityWeather.maxC, maxF = cityWeather.maxF, feelC = cityWeather.feelC, feelF = cityWeather.feelF, windSpeed = cityWeather.wind)
+
 app.run(host='0.0.0.0', port=8080) # any code below 'app.run' line won't run

@@ -31,47 +31,47 @@ class City:
 
 	def get_temp_in_C(self):
 		cTemp = self.temp - 273.15
-		self.tempC = cTemp
+		self.tempC = round(cTemp, 2)
 		return self.tempC
 
 	def get_temp_in_F(self):
 		fTemp = ((self.temp - 273.15) * 1.8) + 32
-		self.tempF = fTemp
+		self.tempF = round(fTemp, 2)
 		return self.tempF 
 	
 	def get_feel_in_C(self):
 		cFeel = self.feel - 273.15
-		self.feelC = cFeel
+		self.feelC = round(cFeel, 2)
 		return self.feelC
 
 	def get_feel_in_F(self):
 		fFeel = ((self.feel - 273.15) * 1.8) + 32
-		self.feelF = fFeel
+		self.feelF = round(fFeel, 2)
 		return self.feelF
 
 	def get_min_in_C(self):
 		cMin = self.min - 273.15
-		self.minC = cMin
+		self.minC = round(cMin, 2)
 		return self.minC
 
 	def get_min_in_F(self):
 		fMin = ((self.min - 273.15) * 1.8) + 32
-		self.minF = fMin
+		self.minF = round(fMin, 2)
 		return self.minF 
 	
 	def get_max_in_C(self):
 		cMax = self.max - 273.15
-		self.maxC = cMax
+		self.maxC = round(cMax, 2)
 		return self.maxC
 
 	def get_max_in_F(self):
 		fMax = ((self.max - 273.15) * 1.8) + 32
-		self.maxF = fMax
+		self.maxF = round(fMax, 2)
 		return self.maxF
 	
 	def get_wind_speed(self):
 		speedWind = self.wind * 2.237
-		self.wind = speedWind
+		self.wind = round(speedWind, 2)
 		return self.wind
 	
 	

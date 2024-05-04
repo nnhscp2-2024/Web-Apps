@@ -9,4 +9,38 @@
 		<input type="submit" value="Search">
 	</form>
 
+	<table class="table">
+  		<thead>
+    		<tr>
+    			<th scope="col">City</th>
+    			<th scope="col">Current Temperature (&#8451;)</th>
+    			<th scope="col">Current Temperature (&#8457;)</th>
+				<th scope="col">Minimum Temperature (&#8451;)</th>
+    			<th scope="col">Minimum Temperature (&#8457;)</th>
+				<th scope="col">Maximum Temperature (&#8451;)</th>
+    			<th scope="col">Maximum Temperature (&#8457;)</th>
+				<th scope="col">Feels like (&#8451;)</th>
+    			<th scope="col">Feels like (&#8457;)</th>
+				<th scope="col">Wind Speed (MPH)</th>
+    		</tr>
+  		</thead>
+		<tbody>
+			{% if city %}
+				<tr>
+				  	<th scope="row"><b>{{ city.title() }}</b></th>
+					<td>{{ tempC }}</td>
+					<td>{{ tempF }}</td>
+					<td>{{ minC }}</td>
+					<td>{{ minF }}</td>
+					<td>{{ maxC }}</td>
+					<td>{{ maxF }}</td>
+					<td>{{ feelC }}</td>
+					<td>{{ feelF }}</td>
+					<td>{{ windSpeed }}</td>
+				</tr>
+			
+		</tbody>
+	</table>
+	{% endif %}
+
 {% endblock%}
