@@ -11,6 +11,7 @@ from city import City
 
 # list of City objects
 cities = []
+citynames = []
 API_KEY = "dcb9deb505067260a9d290e0f4030b13"
 
 def get_data(city):
@@ -85,8 +86,19 @@ def index2():
 	cityWeather.get_temp_in_F()
 	cityWeather.get_wind_speed()
 
-	cities.append(cityWeather)
+	if cityWeather.name not in citynames:
+		cities.append(cityWeather)
+
+	citynames.append(cityWeather.name)
+	
+	print(cities)
+	print(citynames)
 
 	return render_template('index.html', city = city_str, tempC = cityWeather.tempC, tempF = cityWeather.tempF, minC = cityWeather.minC, minF = cityWeather.minF, maxC = cityWeather.maxC, maxF = cityWeather.maxF, feelC = cityWeather.feelC, feelF = cityWeather.feelF, windSpeed = cityWeather.wind, desc = cityWeather.desc)
+
+@app.route('/cities.html', methods = ['GET'])
+def page2():
+	# insert page 2 code here
+	return render_template("cities.html", listofcities = cities)
 
 app.run(host='0.0.0.0', port=8080) # any code below 'app.run' line won't run
