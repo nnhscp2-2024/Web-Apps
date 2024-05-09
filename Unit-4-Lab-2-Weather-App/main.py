@@ -18,5 +18,5 @@ if __name__ == "__main__":
 	cityWeather.get_temp_in_C()
 	cityWeather.get_temp_in_F()
 	cityWeather.get_wind_speed()
-
+	
 	print(cityWeather)
