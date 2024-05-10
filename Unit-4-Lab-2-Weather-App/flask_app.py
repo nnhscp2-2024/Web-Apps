@@ -13,6 +13,8 @@ from city import City
 cities = []
 citynames = []
 API_KEY = "dcb9deb505067260a9d290e0f4030b13"
+LowTemp = [1000, "Name"]
+HighTemp = [-1000, "Name"]
 
 def get_data(city):
 	"""
@@ -70,6 +72,7 @@ def index():
 
 @app.route('/', methods = ['POST'])
 def index2():
+	"""Page one of the webapp"""
 	# get the city name from the form's search box
 	city_str = request.form["search_box"]
 	dataOfCity = get_data(city_str)
@@ -94,11 +97,23 @@ def index2():
 	print(cities)
 	print(citynames)
 
+	if LowTemp[0] > cityWeather.tempC:
+		LowTemp[0] = cityWeather.tempC
+		LowTemp[1] = cityWeather.name
+
+	if HighTemp[0] < cityWeather.tempC:
+		HighTemp[0] = cityWeather.tempC
+		HighTemp[1] = cityWeather.name
+	
+	print(LowTemp)
+	print(HighTemp)
+
 	return render_template('index.html', city = city_str, tempC = cityWeather.tempC, tempF = cityWeather.tempF, minC = cityWeather.minC, minF = cityWeather.minF, maxC = cityWeather.maxC, maxF = cityWeather.maxF, feelC = cityWeather.feelC, feelF = cityWeather.feelF, windSpeed = cityWeather.wind, desc = cityWeather.desc)
 
 @app.route('/cities.html', methods = ['GET'])
 def page2():
+	"""Page to off the webapp"""
 	# insert page 2 code here
-	return render_template("cities.html", listofcities = cities)
+	return render_template("cities.html", listofcities = cities, lowtemp = LowTemp[1], hightemp = HighTemp[1])
 
 app.run(host='0.0.0.0', port=8080) # any code below 'app.run' line won't run
