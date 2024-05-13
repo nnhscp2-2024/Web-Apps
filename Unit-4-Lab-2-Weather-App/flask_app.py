@@ -40,15 +40,36 @@ def get_data(city):
 	y = 200
 	x = 200
 
+	# Future
+
 	urlExp = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API_KEY}"
 	responseExp = requests.get(urlExp)
 	responseExp = responseExp.json()
 	print(responseExp)
 
+	# Weather Map
 	#urlExp2 = f"https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={API_KEY}"
 	#responseExp2 = requests.get(urlExp2)
 	#responseExp2 = responseExp2.json()
 	#print(responseExp2)
+
+	# Pollution
+	print(""".
+	   .
+	   .
+	   .
+	   .
+	   .""")
+	urlExp3 = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API_KEY}"
+	responseExp3 = requests.get(urlExp3)
+	responseExp3 = responseExp3.json()
+	print(responseExp3)
+	print(""".
+	   .
+	   .
+	   .
+	   .
+	   .""")
 
 	# request data from API and retrieve json data response
 	url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={API_KEY}'
@@ -79,6 +100,22 @@ def get_data(city):
 	data.append(windSpeed)
 
 	return data
+
+def get_pollution():
+	API_KEY = 'dcb9deb505067260a9d290e0f4030b13'
+	lat = 41.748489
+	lon = 88.186111
+	dataPol = []
+
+	urlExp3 = f"http://api.openweathermap.org/data/2.5/air_pollution?lat={lat}&lon={lon}&appid={API_KEY}"
+	responseExp3 = requests.get(urlExp3)
+	responseExp3 = responseExp3.json()
+	print(responseExp3)
+
+	co = responseExp3.get("list").get("components").get("co")
+
+
+
 
 app = Flask(__name__)
 
@@ -131,5 +168,10 @@ def page2():
 	"""Page to off the webapp"""
 	# insert page 2 code here
 	return render_template("cities.html", listofcities = cities, lowtemp = LowTemp[1], hightemp = HighTemp[1])
+
+@app.route('/pollution.html', methods = ['GET'])
+def page3():
+	"""Page to off the webapp"""
+	return render_template
 
 app.run(host='0.0.0.0', port=8080) # any code below 'app.run' line won't run
