@@ -172,6 +172,6 @@ def page2():
 @app.route('/pollution.html', methods = ['GET'])
 def page3():
 	"""Page to off the webapp"""
-	return render_template
+	return render_template("pollution.html")
 
 app.run(host='0.0.0.0', port=8080) # any code below 'app.run' line won't run
