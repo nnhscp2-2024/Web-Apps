@@ -33,6 +33,22 @@ def get_data(city):
 
 	# initialize your API key here
 	API_KEY = 'dcb9deb505067260a9d290e0f4030b13'
+	lat = 41.748489
+	lon = 88.186111
+	layer = 'precipitation_new'
+	z = 8
+	y = 200
+	x = 200
+
+	urlExp = f"http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API_KEY}"
+	responseExp = requests.get(urlExp)
+	responseExp = responseExp.json()
+	print(responseExp)
+
+	#urlExp2 = f"https://tile.openweathermap.org/map/{layer}/{z}/{x}/{y}.png?appid={API_KEY}"
+	#responseExp2 = requests.get(urlExp2)
+	#responseExp2 = responseExp2.json()
+	#print(responseExp2)
 
 	# request data from API and retrieve json data response
 	url = f'http://api.openweathermap.org/data/2.5/weather?q={city}&APPID={API_KEY}'
