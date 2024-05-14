@@ -246,6 +246,7 @@ def index2():
 	"""Page one of the webapp"""
 	# get the city name from the form's search box
 	city_str = request.form["search_box"]
+	print(city_str)
 	dataOfCity = get_data(city_str)
 	print(dataOfCity)
 
@@ -294,4 +295,4 @@ def page3():
 
 	return render_template("pollution.html", polIndex = cityPol[0], coInd = cityPol[1], no2Ind = cityPol[2], o3Ind = cityPol[3], so2Ind = cityPol[4], pm2_5Ind = cityPol[5], pm10Ind = cityPol[6], percent = cityPol[7])
 
-app.run(host='0.0.0.0', port=8081) # any code below 'app.run' line won't run
+app.run(host='0.0.0.0', port=8080) # any code below 'app.run' line won't run

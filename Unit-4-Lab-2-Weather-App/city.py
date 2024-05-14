@@ -8,7 +8,7 @@ class City:
 		self.feel = feel_K
 		self.min = min_temp_K
 		self.max = max_temp_K
-		self.wind = wind
+		self.windy = wind
 		self.tempC = "None"
 		self.tempF = "None"
 		self.feelC = "None"
@@ -84,7 +84,7 @@ class City:
 	
 	def get_wind_speed(self):
 		"""Gets the wind speed of the city"""
-		speedWind = self.wind * 2.237
+		speedWind = self.windy * 2.237
 		self.wind = round(speedWind, 2)
 		return self.wind
 
