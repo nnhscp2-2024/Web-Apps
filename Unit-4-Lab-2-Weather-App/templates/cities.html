@@ -79,7 +79,7 @@
     </thead>
     <tbody>
 	{% for city in listofcities %}
-        <tr>
+        <tr class="table-info">
             <td><b>{{ listofcities.index(city) + 1 }}</b></td>
             <td><b>{{ city.get_name() }}</b></td>
             <td>{{ city.get_temp_in_C() }}</td>
@@ -103,11 +103,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
+      <tr class="table-info">
         <td>Low Temp City</td>
         <td>{{ lowtemp }}</td>
       </tr>
-      <tr>
+      <tr class="table-info">
         <td>High Temp City</td>
         <td>{{ hightemp }}</td>
       </tr>
