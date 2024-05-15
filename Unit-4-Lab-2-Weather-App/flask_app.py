@@ -245,6 +245,7 @@ def index():
 def index2():
 	"""Page one of the webapp"""
 	# get the city name from the form's search box
+	icons = []
 	city_str = request.form["search_box"]
 	print(city_str)
 	dataOfCity = get_data(city_str)
