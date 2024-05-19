@@ -13,8 +13,8 @@ from city import City
 cities = []
 citynames = []
 API_KEY = "dcb9deb505067260a9d290e0f4030b13"
-LowTemp = [1000, "Name"]
-HighTemp = [-1000, "Name"]
+LowTemp = [1000, "No city searched"]
+HighTemp = [-1000, "No city searched"]
 
 def get_data(city):
 	"""
