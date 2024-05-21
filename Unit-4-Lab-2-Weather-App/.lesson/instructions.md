@@ -217,7 +217,7 @@ By passing the `city_str` to the `render_template` function as the variable `cit
 {% endif %}
 ```
 
-`{% if city %}` is just like a Python if statement.  This will only run if the `city` variable has a value assigned to it. Unliike Python, this if block also includes an `{% endif %}`, indicating the scope, or end, of the if block.
+`{% if city %}` is just like a Python if statement.  This will only run if the `city` variable has a value assigned to it. Unlike Python, this if block also includes an `{% endif %}`, indicating the scope, or end, of the if block.
 
 A [similar technique](https://jinja.palletsprojects.com/en/3.0.x/templates/) can be used with for loops. This will be valuable in Step 8! e.g.
 
